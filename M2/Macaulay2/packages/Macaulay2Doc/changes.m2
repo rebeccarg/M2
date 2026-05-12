@@ -6,6 +6,7 @@ document {
      Key => "changes to Macaulay2, by version",
      Subnodes => {
 	  -- TO "changes made for the next release",
+	  TO "changes, 1.26.06",
 	  TO "changes, 1.26.05",
 	  TO "changes, 1.25.11",
 	  TO "changes, 1.25.05",
@@ -66,6 +67,36 @@ changesHelper List := opt -> pkgnames -> (
 	    << (if opt.Certification then "published" else "added")
 	    << ".\" },"
 	    << endl)))
+
+document {
+    Key => "changes, 1.26.06",
+    UL {
+	LI { "new packages:",
+	    UL {
+		LI { TO "DirectSummands::DirectSummands", ", a package by Devlin Mallory and Mahrud Sayrafi for computing direct sum decompositions of modules and coherent sheaves, has been added." },
+		},
+	    },
+	LI { "improved packages:" ,
+	    UL {
+		LI { TO "ConnectionMatrices::ConnectionMatrices", " has been updated to version 1.1, including function renames (notably ", TT "connectionMatrices", " → ", TO "ConnectionMatrices::pfaffianSystem", "), additional examples, and internal simplifications." },
+		LI { TO "FastMinors::FastMinors", " has been updated to version 1.3.1, fixing a bug in ", TO "FastMinors::projDim", " and adding functionality to verify non-regularity in codimension $n$ via ", TO "FastMinors :: regularInCodimension(...,VerifyNonRegular=>...)", ", together with corresponding documentation and tests." },
+		LI { TO "InvariantRing::InvariantRing", " has been updated to version 2.5, fixing bugs and speeding up the algorithm for elementary abelian $p$-groups." },
+		},
+	    },
+	LI { "functionality added or improved:",
+	    UL {
+		LI { "Using ", TO "augmented assignment", " with mutable hash tables is now thread safe." },
+		LI { "The ", TO (symbol _, String, List), " method has been added for creating substrings. "},
+		LI { "A number of improvements have been made to ", TO "the debugger", ":",
+		    UL {
+			LI { "The ", TO symbol finish, " command is new, allowing execution to continue until the current stack frame completes." },
+			LI { "The ", TO symbol breakpoint, " keyword is now documented, with improved functionality." },
+			},
+		    },
+		},
+	    },
+	}
+    }
 
 document {
     Key => "changes, 1.26.05",
